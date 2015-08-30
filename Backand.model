@@ -1,0 +1,60 @@
+## backand model
+[
+  {
+    "name": "system",
+    "fields": { 
+      "name": { "type": "string" },
+      "location": { "type": "string" },
+      "vendor": { "type": "string" },
+      "house": { "object": "house" }
+    }
+  },
+  {
+    "name": "house",
+    "fields": {
+      "name": { "type": "string" },
+      "description": { "type": "text" },
+      "address": { "type": "string" },
+      "yearBuilt": { "type": "string" },
+      "owner": { "object": "user" },
+      "systems": {
+        "collection": "system",
+        "via": "house"
+      },
+      "houseLogEntries": {
+        "collection": "houseLogEntry",
+        "via": "house"
+      }
+    }
+  },
+  {
+    "name": "user",
+    "fields": {
+      "email": { "type": "string" },
+      "nickName": { "type": "string" },
+      "fullName": { "type": "string" },
+      "houses": {
+        "collection": "house",
+        "via": "owner"
+      },
+      "defaultHouse": { "type": "string" }
+    }
+  },
+  {
+    "name": "sysLocation",
+    "fields": {
+      "name": { "type": "string" }
+    }
+  },
+  {
+    "name": "houseLogEntry",
+    "fields": {
+      "sortDate": { "type": "datetime" },
+      "title": { "type": "string" },
+      "text": { "type": "text" },
+      "house": {
+        "object": "house"
+      }
+    }
+  }
+]

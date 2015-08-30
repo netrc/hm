@@ -5,6 +5,7 @@ npm install -g ionic
 
 ionic start hm blank
 
+ionic serve --address 192.168.1.3    // so you can get to service from any device
 
 // todo
 // see http://ionicframework.com/docs/guide/installation.html
